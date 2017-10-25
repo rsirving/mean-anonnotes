@@ -1,0 +1,13 @@
+<form #formCtrl="ngForm" (submit)="onSubmit()">
+  <label for="text">Note:
+    <input type="text" name="text" [(ngModel)]="note.text" #text="ngModel" required minlength="3">
+  </label>
+  <input type="submit" value="Add Note" [disabled]="!formCtrl.valid">
+</form>
+
+<div class="box">
+  <div *ngFor="let note of notes">
+    <p>Noted on: {{note.date | date:'medium'}}</p>
+    <p>{{note.text}}</p>
+  </div>
+</div>
